@@ -1,0 +1,151 @@
+@charset "utf-8";
+/*
+=======================================
+	Reset CSS
+=======================================
+*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, main, menu, nav, section, summary,
+time, mark, audio, video{
+	margin:0;
+	padding:0;
+  box-sizing: border-box;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,main,menu,nav,section{
+	display:block;
+}
+
+html{
+	-webkit-text-size-adjust: 100%;
+}
+
+body{
+	color: #59220d;
+	line-height: 1.5;
+	font-size: 14px;
+	font-family: sans-serif;
+}
+
+/*img{
+	border: 0;
+	max-width: 100%;
+	height: auto;
+}*/
+
+ul,ol{
+	list-style-type: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+img, input, select, textarea {
+	vertical-align: middle;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+/*
+====================================
+  Layout
+====================================
+*/
+.body {
+  padding-top: 80px;
+  padding-bottom: 40px;
+}
+
+.container {
+  width: 780px;
+  margin: 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid #000000;
+}
+
+.headerWrap {
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 16px;
+  color: #FFB74D;
+}
+
+.mainWrap {
+  margin-bottom: 20px;
+  padding-left: 60px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #000000;
+}
+
+.commodityNav {}
+
+.commodityItem { /* li */
+  display: inline-block;
+  width: 100px;
+  margin-right: 40px;
+}
+
+.commodityItem:after {
+  content: "";
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear: both;
+}
+
+.commodityLink {
+  display: block;
+  cursor: pointer;
+}
+
+.commodityName {
+  height: 60px;
+  font-size: 11px;
+  color: #1976D2;
+  overflow: hidden;
+}
+
+.commodityRatingStars {
+  float: left;
+}
+
+.reviewCount {
+  display: inline-block;
+  width: 35px;
+  font-size: 11px;
+  text-align: center;
+  color: #1976d2;
+}
+
+.commodityPrice {
+  display: inline-block;
+  width: 40px;
+  font-size: 11px;
+  text-align: center;
+  color: #d32f2f;
+}
+
+.primeLogo {
+  float: right;
+}
+
+.footerWrap {
+  text-align: center;
+  font-size: 12px;
+}

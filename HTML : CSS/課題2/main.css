@@ -1,0 +1,245 @@
+@charset "utf-8";
+/*
+=======================================
+	Reset CSS
+=======================================
+*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, main, menu, nav, section, summary,
+time, mark, audio, video{
+	margin:0;
+	padding:0;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,main,menu,nav,section{
+	display:block;
+}
+
+html{
+	-webkit-text-size-adjust: 100%;
+}
+
+body{
+	color: #000000;
+	line-height: 1.5;
+	font-size: 12px;
+	font-family: sans-serif;
+}
+
+ul,ol{
+	list-style-type: none;
+}
+
+table, td, th {
+  text-align: left;
+	border: 1px solid #000000;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+img, input, select, textarea {
+	vertical-align: middle;
+}
+
+a {
+  color: blue;
+  /*text-decoration: none;*/
+}
+
+/*
+===============================================
+  Layout
+===============================================
+
+-------------------------------------
+  table
+-------------------------------------
+*/
+.table {
+	width: 780px;
+}
+
+.table_title {
+	width: 759px;
+	height: 40px;
+	padding-left: 20px;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 40px;
+	background: #BDBDBD;
+	border: 1px solid #000000;
+	border-bottom: none;
+}
+
+.table_question {
+	position: relative;
+	width: 220px;
+  padding-left: 20px;
+}
+
+.table_question.l_bg_lightRed {
+	background-color: #ef9a9a;
+}
+
+.table_essential_label {
+	position: absolute;
+	top: 50%;
+	right: 20px;
+	transform: translate(0, -50%);
+	width: 40px;
+	color: #ffffff;
+	background-color: #d32f2f;
+	font-weight: normal;
+	text-align: center;
+}
+
+.table_optional_label {
+	position: absolute;
+	top: 50%;
+	right: 20px;
+	transform: translate(0, -50%);
+	width: 40px;
+	font-weight: normal;
+	text-align: center;
+	border: 1px solid #000000;
+}
+
+.table_answer {
+	padding: 20px;
+}
+
+.basic_information_table,
+.place_information_table {
+	margin-bottom: 40px;
+}
+
+.customer_information_table {
+	margin-bottom: 60px;
+}
+/*
+-------------------------------------
+  その他
+-------------------------------------
+*/
+.container {
+	width: 780px;
+	margin: 0 auto;
+	padding: 80px 0;
+}
+
+.header {
+	margin-bottom: 20px;
+}
+
+.header_img {
+	border: 1px solid #000000;
+	cursor: pointer;
+}
+
+/*ラジオボタンのマージン*/
+.ta_manufacturer,
+.ta_type,
+.ta_pedal_num,
+.ta_color,
+.ta_p_home_has_elevator,
+.ta_p_howToCarryIn,
+.ta_howToContactCustomer {
+	margin-right: 10px;
+}
+
+.ta_p_model_name_input,
+.ta_p_manufacturing_num_input {
+	width: 300px;
+}
+
+.ta_optional_function {
+	display: block;
+	margin-bottom: 20px;
+}
+
+.ta_optional_function_last {
+	margin-bottom: 0;
+}
+
+.ta_p_postcode_input {
+	width: 160px;
+	margin-right: 20px;
+}
+
+.ta_p_postcode_select {
+	display: block;
+	margin-bottom: 20px;
+}
+
+.ta_p_address_1,
+.ta_p_address_2,
+.ta_p_address_3 {
+	width: 360px;
+	margin-bottom: 20px
+}
+
+.ta_p_address_3 {
+	margin-bottom: 0;
+}
+
+.ta_p_home_type {
+	margin-right: 20px;
+}
+
+.ta_p_howToCarryIn_topWrap {
+	margin-bottom: 20px;
+}
+
+.ta_kanji_nameWrap {
+	margin-bottom: 20px;
+	padding-left: 12px;
+}
+
+.ta_name_input {
+	width: 160px;
+}
+
+.ta_kanji_last_name_input {
+	margin-right: 40px;
+}
+
+.ta_kana_last_name_input {
+	margin-right: 28px;
+}
+
+.ta_phone_number_input,
+.ta_email_address_input {
+	width: 300px;
+}
+
+.ta_textarea_300 {
+	width: 480px;
+	height: 100px;
+}
+
+.submit_wrap {
+	text-align: center;
+}
+
+.tos:link {
+	color: #1565C0;
+}
+
+.submit_btn {
+	width: 440px;
+	height: 60px;
+	font-size: 16px;
+	font-weight: bold;
+	background-color: #f44336;
+	cursor: pointer;
+}

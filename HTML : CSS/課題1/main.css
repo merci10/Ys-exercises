@@ -1,0 +1,120 @@
+@charset "utf-8";
+/*
+=======================================
+	Reset CSS
+=======================================
+*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, main, menu, nav, section, summary,
+time, mark, audio, video{
+	margin:0;
+	padding:0;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,main,menu,nav,section{
+	display:block;
+}
+
+html{
+	-webkit-text-size-adjust: 100%;
+}
+
+body{
+	color: #59220d;
+	line-height: 1.5;
+	font-size: 14px;
+	font-family: sans-serif;
+}
+
+img{
+	border: 0;
+	max-width: 100%;
+	height: auto;
+}
+
+ul,ol{
+	list-style-type: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+img, input, select, textarea {
+	vertical-align: middle;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+/*
+========================================
+  Layout
+========================================
+*/
+#body {
+	padding-top: 60px;
+}
+
+#main {
+  width: 300px;
+  height: auto;
+  padding: 40px 0 60px 60px;
+	margin: 0 auto;
+  border: 1px solid #000000;
+}
+
+.block {
+  display: block;
+}
+
+.font_bold {
+  font-weight: bold;
+}
+
+#name_text {
+  width: 220px;
+  height: 40px;
+  margin-bottom: 20px;
+  background: #FFE082;
+  border: 1px solid #000000;
+}
+
+#password_text {
+  width: 220px;
+  height: 40px;
+  margin-bottom: 30px;
+  background: #FFE082;
+  border: 1px solid #000000;
+}
+
+#rememberLogin_label {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+#submit_btn {
+  width: 220px;
+  height: 40px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  background-color: #2196F3;
+  border: 1px solid #000000;
+}
+
+#linkWhenForgetPassword {
+  text-decoration: underline;
+}

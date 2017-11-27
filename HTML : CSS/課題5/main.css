@@ -1,0 +1,341 @@
+@charset "utf-8";
+/*
+=======================================
+	Base
+=======================================
+*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, main, menu, nav, section, summary,
+time, mark, audio, video{
+	margin:0;
+	padding:0;
+  box-sizing: border-box;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,main,menu,nav,section{
+	display:block;
+}
+
+html{
+	-webkit-text-size-adjust: 100%;
+}
+
+body{
+	line-height: 1.6;
+	font-size: 14px;
+	font-family: sans-serif;
+}
+
+/*img {
+	border: 0;
+	max-width: 100%;
+	height: auto;
+}*/
+
+ul,ol{
+	list-style-type: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+img, input, select, textarea {
+	vertical-align: middle;
+}
+
+a {
+  color: blue;
+  /*text-decoration: none;*/
+}
+/*
+====================================
+  Layout
+====================================
+*/
+th, td {
+	height: 23px;
+	padding: 0 5px;
+}
+/*
+------------------------------
+  共通
+------------------------------
+*/
+.sectionTitle {
+  letter-spacing: 3px;
+}
+
+/*.purple_price,
+.red_price {
+  background-color: #FFE0B2;
+}*/
+/* purple table
+-----------------------------*/
+.purpleTable {
+	border: 1px solid purple;
+}
+.purple_cell {
+  border-right: 1px solid purple;
+  border-bottom: 1px dotted purple;
+}
+
+.purple_bb_solid { /* border-bottom */
+  border-bottom: 1px solid purple;
+}
+
+.purple_category {
+	width: 200px;
+	text-align: left;
+}
+
+.purple_price {
+	width: 120px;
+	text-align: right;
+  background-color: #FFE0B2;  /*.purple_bg_thのbackground-colorよりも上に書く必要あり*/
+}
+
+.purple_payee {
+	width: 100px;
+	text-align: center;
+}
+
+.purple_paid_day {
+	width: 100px;
+	text-align: right;
+}
+
+.purple_bg_th {
+	text-align: center;
+	color: #ffffff;
+	background-color: purple;  /*.purple_priceのbackground-colorよりも下に書く必要あり*/
+	border-bottom: none;
+}
+
+.purple_makeBetween_td {
+	height: 2px;
+}
+
+.purple_last_td {
+	text-align: center;
+	background: lightBlue;
+}
+
+.purple_price_last {
+	text-align: right;
+}
+
+
+/* red table
+-----------------------------*/
+.redTable {
+	border: 1px solid red;
+}
+
+.red_cell {
+  border-right: 1px solid red;
+  border-bottom: 1px dotted red;
+}
+
+.red_bb_solid { /* border-bottom */
+  border-bottom: 1px solid red;
+}
+
+.red_category {
+	width: 200px;
+	text-align: left;
+  background-color: #ffcdd2;
+}
+
+.red_price {
+	width: 120px;
+	text-align: right;
+  background-color: #FFE0B2;  /*.red_bg_thのbackground-colorよりも上に書く必要あり*/
+}
+
+.red_payee {
+	width: 100px;
+	text-align: center;
+}
+
+.red_paid_day { /*今月の生活費だけ「支払日」が「残り」になっている*/
+	width: 100px;
+	text-align: right;
+}
+
+.red_budget {
+  width: 100px;
+  text-align: right;
+}
+
+.red_bg_th {
+	text-align: center;
+	color: #ffffff;
+	background: red;  /*.red_priceのbackground-colorよりも下に書く必要あり*/
+	border-bottom: none;
+}
+
+.red_makeBetween_td {
+	height: 2px;
+}
+
+.red_tbSpaceControll_td {
+  padding-top: 1.5px;
+  padding-bottom: 1.5px;
+}
+
+.red_text {
+  color: red;
+}
+
+/*
+===================================
+  Status
+===================================
+*/
+.body {
+	padding-top: 60px;
+	padding-bottom: 60px;
+}
+
+.container {
+	width: 1062px;
+	margin: 0 auto;
+}
+
+.headerWrap {
+	margin-bottom: 10px;
+}
+
+.mainWrap {
+  margin-bottom: 60px;
+}
+
+.mainWrap:after {
+  content: "";
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear: both;
+}
+
+
+.purpleWrap {
+  float: left;
+}
+
+.redWrap {
+  float: right;
+}
+
+.incomeSection,
+.savingDepositSection {
+  margin-bottom: 20px;
+}
+
+.footerNavItem {
+  display: inline-block;
+  margin-right: 40px;
+}
+
+/* tooltip付きtr & simileWrapcのレイアウト
+-------------------------*/
+.essentialOutcomeSection {
+  position: relative;
+}
+
+.tooltipWrap {
+  position: absolute;
+  top: 340px;
+  left: 150px;
+}
+
+.tooltip_innerWrap {
+  position: relative;
+  display: inline-block;
+ 	width: 90px;
+  padding: 7px 0 7px 9px;
+ 	font-size: 10px;
+  line-height: 1.2;
+	background-color: #FFF9C4;
+ 	border: solid 2px #000;
+  border-radius: 10px;
+}
+
+.tooltip_innerWrap::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -15px;
+  transform: rotate(135deg);
+  border: 15px solid transparent;
+  border-top: 13px solid #000;
+}
+
+.tooltip_innerWrap::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  right: -12px;
+  transform: rotate(135deg);
+  border: 13px solid transparent;
+  border-top: 10px solid #FFF9C4;
+}
+
+.smileWrap {
+  position: absolute;
+  top: 325px;
+  left: 210px;
+}
+
+.smile_innerWrap {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  background-color: gray;
+  border: 1px solid #000000;
+  border-radius: 50%;
+  opacity: .7;
+  z-index: 10;
+}
+
+.smile_leftEye {
+  position: absolute;
+  top: 8px;
+  left: 6px;
+  width: 5px;
+  height: 5px;
+  background-color: #000;
+  border-radius: 50%;
+}
+
+.smile_rightEye {
+  position: absolute;
+  top: 8px;
+  right: 6px;
+  width: 5px;
+  height: 5px;
+  background-color: #000;
+  border-radius: 50%;
+}
+
+.smile_mouth {
+  position: absolute;
+  top: 8px;
+  left: 11px;
+  font-size: 16px;
+  transform: rotate(-90deg);
+}

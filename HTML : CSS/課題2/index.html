@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>HTML/CSS 課題2</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <img src="https://placehold.jp/4CAF50/ffffff/1x1.png" width="320px" height="60px" alt="logo" class="header_img">
+    </header>
+    <main class="main">
+      <form>
+        <table class="table basic_information_table">
+          <tbody>
+            <tr>
+              <p class="table_title">ピアノの情報</p>
+            </tr>
+            <tr>
+              <th class="table_question l_bg_lightRed">ピアノのメーカー<span class="table_essential_label">必須</span></th>
+              <td class="table_answer">
+                <label class="ta_manufacturer"><input type="radio" name="p_manufacturer" value="yamaha" checked="checked">ヤマハ</label>
+                <label class="ta_manufacturer"><input type="radio" name="p_manufacturer" value="kawai">カワイ</label>
+                <label class="ta_manufacturer"><input type="radio" name="p_manufacturer" value="others">その他</label>
+              </td>
+            </tr>
+            <tr>
+              <th class="table_question l_bg_lightRed">ピアノの種類<span class="table_essential_label">必須</span></th>
+              <td class="table_answer">
+                <label class="ta_type"><input type="radio" name="p_type" value="yamaha" checked="checked">アップライトピアノ(縦型)</label>
+                <label class="ta_type"><input type="radio" name="p_type" value="kawai">グランドピアノ</label>
+                <label class="ta_type"><input type="radio" name="p_type" value="others">電子ピアノ・エレクトーン</label>
+              </td>
+            </tr>
+            <tr>
+              <th class="table_question l_bg_lightRed">モデル名<span class="table_essential_label">必須</span></th>
+              <td class="table_answer">
+                <input type="text" name="p_model_name" value="" class="ta_p_model_name_input">
+              </td>
+            </tr>
+            <tr>
+              <th class="table_question l_bg_lightRed">製造番号<span class="table_essential_label">必須</span></th>
+              <td class="table_answer">
+                <input type="text" name="p_manufacturing_num" value="" class="ta_p_manufacturing_num_input">
+              </td>
+            </tr>
+            <tr>
+              <th class="table_question l_bg_lightRed">ペダルの本数<span class="table_essential_label">必須</span></th>
+              <td class="table_answer">
+                <label class="ta_pedal_num"><input type="radio" name="p_pedal_num" value="" checked>2本</label>
+                <label class="ta_pedal_num"><input type="radio" name="p_pedal_num" value="">3本</label>
+              </td>
+            </tr>
+            <tr>
+              <th class="table_question l_bg_lightRed">ピアノの色<span class="table_essential_label">必須</span></th>
+              <td class="table_answer">
+                <label class="ta_color"><input type="radio" name="p_color" value="" checked>黒</label>
+                <label class="ta_color"><input type="radio" name="p_color" value="">白</label>
+                <label class="ta_color"><input type="radio" name="p_color" value="">茶(木目含む)</label>
+                <label class="ta_color"><input type="radio" name="p_color" value="">その他</label>
+              </td>
+            </tr>
+            <tr>
+              <th class="table_question">オプション機能<span class="table_optional_label">任意</span></th>
+              <td class="table_answer">
+                <label class="ta_optional_function"><input type="checkbox" name="optional_function" value="">自動演奏機能</label>
+                <label class="ta_optional_function"><input type="checkbox" name="optional_function" value="">消音装置(ヘッドフォンを使用できる装置)</label>
+                <a href="#" class="ta_optional_function ta_optional_function_last">消火装置とは</a>
+              </td>
+            </tr>
+          </tbody>
+        </tabel>
+
+        <table class="table place_information_table">
+          <tbody>
+            <tr>
+              <p class="table_title">ピアノが置いてある場所</p>
+            </tr>
+            <tr>
+              <th class="table_question l_bg_lightRed">住所<span class="table_essential_label">必須</span></th>
+              <td class="table_answer">
+                <p>〒<input type="text" name="p_postcode" value="" class="ta_p_postcode_input"><a href="#">郵便番号を調べる</a></p>
+                <p>❇︎郵便番号はハイフン(-)なしで入力してください</p>
+                <select name="p_pref_id" class="ta_p_postcode_select">
+                  <option value="" selected>選択</option>
+                  <option value="1">北海道</option>
+                  <option value="2">青森県</option>
+                  <option value="3">岩手県</option>
+                  <option value="4">宮城県</option>
+                  <option value="5">秋田県</option>
+                  <option value="6">山形県</option>
+                  <option value="7">福島県</option>
+                  <option value="8">茨城県</option>
+                  <option value="9">栃木県</option>
+                  <option value="10">群馬県</option>
+                  <option value="11">埼玉県</option>
+                  <option value="12">千葉県</option>
+                  <option value="13">東京都</option>
+                  <option value="14">神奈川県</option>
+                  <option value="15">新潟県</option>
+                  <option value="16">富山県</option>
+                  <option value="17">石川県</option>
+                  <option value="18">福井県</option>
+                  <option value="19">山梨県</option>
+                  <option value="20">長野県</option>
+                  <option value="21">岐阜県</option>
+                  <option value="22">静岡県</option>
+                  <option value="23">愛知県</option>
+                  <option value="24">三重県</option>
+                  <option value="25">滋賀県</option>
+                  <option value="26">京都府</option>
+                  <option value="27">大阪府</option>
+                  <option value="28">兵庫県</option>
+                  <option value="29">奈良県</option>
+                  <option value="30">和歌山県</option>
+                  <option value="31">鳥取県</option>
+                  <option value="32">島根県</option>
+                  <option value="33">岡山県</option>
+                  <option value="34">広島県</option>
+                  <option value="35">山口県</option>
+                  <option value="36">徳島県</option>
+                  <option value="37">香川県</option>
+                  <option value="38">愛媛県</option>
+                  <option value="39">高知県</option>
+                  <option value="40">福岡県</option>
+                  <option value="41">佐賀県</option>
+                  <option value="42">長崎県</option>
+                  <option value="43">熊本県</option>
+                  <option value="44">大分県</option>
+                  <option value="45">宮崎県</option>
+                  <option value="46">鹿児島県</option>
+                  <option value="47">沖縄県</option>
+                </select>
+                <input type="text" name="p_address_1" value="" class="ta_p_address_1">
+                <input type="text" name="p_address_2" value="" class="ta_p_address_2">
+                <input type="text" name="p_address_3" value="" class="ta_p_address_3">
+              </td>
+            </tr>
+            <tr>
+              <th class="table_question l_bg_lightRed">建築物タイプと階数<span class="table_essential_label">必須</span></th>
+              <td class="table_answer">
+                <select name="p_home_type" class="ta_p_home_type">
+                  <option value="" selected>選択</option>
+                  <option value="1">一戸建て</option>
+                  <option value="2">マンション</option>
+                  <option value="3">アパート</option>
+                  <option value="4">ビル</option>
+                  <option value="5">公共の建物</option>
+                  <option value="6">その他</option>
+                </select>
+                <select name="p_home_floor_rank" class="ta_p_home_floor_rank">
+                  <option value="" selected>選択</option>
+                  <option value="1">地下2階</option>
+                  <option value="2">地下1階</option>
+                  <option value="3">1階</option>
+                  <option value="4">2階</option>
+                  <option value="5">3階</option>
+                  <option value="6">4階</option>
+                  <option value="7">5階</option>
+                  <option value="8">6階</option>
+                  <option value="9">7階</option>
+                  <option value="10">8階</option>
+                  <option value="11">9階</option>
+                  <option value="12">10階</option>
+                  <option value="13">11階以上</option>
+              </td>
+            </tr>
+            <tr>
+              <th class="table_question l_bg_lightRed">エレベーター<span class="table_essential_label">必須</span></th>
+              <td class="table_answer">
+                <label class="ta_p_home_has_elevator"><input type="radio" name="p_home_has_elevator" value="ture" class="" checked>あり</label>
+                <label class="ta_p_home_has_elevator"><input type="radio" name="p_home_has_elevator" value="false" class="">なし</label>
+              </td>
+            </tr>
+            <tr>
+              <th class="table_question">建物への搬入方法<span class="table_optional_label">任意</span></th>
+              <td class="table_answer">
+                <div class="ta_p_howToCarryIn_topWrap">
+                  <label class="ta_p_howToCarryIn"><input type="radio" name="p_howToCarryIn" value="" class="" checked>階段</label>
+                  <label class="ta_p_howToCarryIn"><input type="radio" name="p_howToCarryIn" value="" class="">エレベーター</label>
+                  <label class="ta_p_howToCarryIn"><input type="radio" name="p_howToCarryIn" value="" class="">クレーン車</label>
+                </div>
+                <div>
+                  <label class="ta_p_howToCarryIn"><input type="radio" name="p_howToCarryIn" value="" class="">その他</label>
+                  <label class="ta_p_howToCarryIn"><input type="radio" name="p_howToCarryIn" value="" class="">わからない</label>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </tabel>
+
+        <table class="table customer_information_table">
+          <tbody>
+            <tr>
+              <p class="table_title">お客様の情報</p>
+            </tr>
+            <tr>
+              <th class="table_question l_bg_lightRed">お名前<span class="table_essential_label">必須</span></th>
+              <td class="table_answer">
+                <div class="ta_kanji_nameWrap">
+                  姓<input type="text" name="last_name" value="" class="ta_name_input ta_kanji_last_name_input">
+                  名<input type="text" name="first_name" value="" class="ta_name_input  ta_kanji_first_name_input">
+                </div>
+                <div class="ta_kana_nameWrap">
+                  セイ<input type="text" name="last_name_kana" value="" class="ta_name_input ta_kana_last_name_input">
+                  メイ<input type="text" name="first_name_kana" value="" class="ta_name_input">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th class="table_question l_bg_lightRed">TEL<span class="table_essential_label">必須</span></th>
+              <td class="table_answer">
+                <input type="text" name="phone_number" value="" class="ta_phone_number_input">
+                <p>❇︎03-0000-0000、0300000000　ハイフン(-)有り無しでもどちらでも入力可能です。</p>
+              </td>
+            </tr>
+            <tr>
+              <th class="table_question l_bg_lightRed">E-mail<span class="table_essential_label">必須</span></th>
+              <td class="table_answer">
+                <input type="text" name="email_address" value="" class="ta_email_address_input">
+              </td>
+            </tr>
+            <tr>
+              <th class="table_question">希望連絡方法<span class="table_optional_label">任意</span></th>
+              <td class="table_answer">
+                <label class="ta_howToContactCustomer"><input type="radio" name="howToContactCustomer" value="telephone" checked>電話</label>
+                <label class="ta_howToContactCustomer"><input type="radio" name="howToContactCustomer" value="email">E-mail</label>
+                <label class="ta_howToContactCustomer"><input type="radio" name="howToContactCustomer" value="both">どちらでも可</label>
+                <p>❇︎E-mailをご選択いただいた場合でも、電話連絡をさせていただくことがあります。<br>予めご了承ください。</p>
+              </td>
+            </tr>
+            <tr>
+              <th class="table_question">その他質問、備考<span class="table_optional_label">任意</span></th>
+              <td class="table_answer">
+                <textarea name="note" class="ta_textarea_300"></textarea>
+                <p>❇︎300文字以内</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="submit_wrap">
+          <p>❇︎内容をご確認後、<a href="#" class="tos">『ご利用規約』</a>に同意の上</p>
+          <input type="image" src="https://placehold.jp/f44336/ffffff/1x1.png" width="440px" height="60px" value="ズバット ピアノ買取比較のロゴ" alt="logo">
+        </div>
+      </form>
+    </main>
+  </div><!-- container -->
+</body>
+</html>
