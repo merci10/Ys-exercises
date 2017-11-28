@@ -218,6 +218,10 @@ th, td {
 	margin-bottom: 10px;
 }
 
+.headerTitle {
+	text-shadow: 3px 3px 0 #9E9E9E;
+}
+
 .mainWrap {
   margin-bottom: 60px;
 }
