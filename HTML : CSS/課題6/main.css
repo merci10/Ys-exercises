@@ -1,0 +1,132 @@
+@charset "utf-8";
+/*
+=======================================
+	Base
+=======================================
+*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, main, menu, nav, section, summary,
+time, mark, audio, video{
+	margin:0;
+	padding:0;
+  box-sizing: border-box;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,main,menu,nav,section{
+	display:block;
+}
+
+html{
+	-webkit-text-size-adjust: 100%;
+}
+
+body{
+	line-height: 1.6;
+	font-size: 14px;
+	font-family: sans-serif;
+}
+
+/*img {
+	border: 0;
+	max-width: 100%;
+	height: auto;
+}*/
+
+ul,ol{
+	list-style-type: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+img, input, select, textarea {
+	vertical-align: middle;
+}
+
+a {
+  color: blue;
+  /*text-decoration: none;*/
+}
+/*
+====================================
+  Layout
+====================================
+*/
+.mainWrap {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-content: space-between;
+	width: 820px;
+	height: 680px;
+	margin: 0 auto;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+.black_frame {
+	padding: 20px;
+	width: 390px;
+	height: 280px;
+	background-color: #000;
+}
+
+.figure_frame {
+	position: relative;
+	overflow: hidden;
+}
+
+.figcaption {
+	position: absolute;
+	top: 3px;
+	left: 5px;
+}
+
+.zoomIn_img {
+	transform: scale(1);
+	transition: .3s ease-in-out;
+}
+
+.zoomIn_img:hover  {
+	transform: scale(1.2);
+}
+
+.blur_img {
+	filter: blur(0);
+	transition: .3s ease-in-out;
+}
+
+.blur_img:hover {
+	filter: blur(2px);
+}
+
+.grayscale_img {
+	filter: grayscale(0);
+	transition: .3s ease-in-out;
+}
+
+.grayscale_img:hover {
+	filter: grayscale(100%);
+}
+
+.rotate_zoomIn_img {
+	transform: rotate(0) scale(1);
+	transition: 2.0s ease-in-out;
+}
+
+.rotate_zoomIn_img:hover {
+	transform: rotate(360deg) scale(1.6);
+}
