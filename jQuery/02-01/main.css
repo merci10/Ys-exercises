@@ -1,0 +1,116 @@
+@charset "utf-8";
+/*
+=======================================
+	Base
+=======================================
+*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, main, menu, nav, section, summary,
+time, mark, audio, video{
+	margin:0;
+	padding:0;
+  box-sizing: border-box;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,main,menu,nav,section{
+	display:block;
+}
+
+html{
+	-webkit-text-size-adjust: 100%;
+}
+
+body{
+	line-height: 1.6;
+	font-size: 14px;
+	font-family: sans-serif;
+}
+
+/*img {
+	border: 0;
+	max-width: 100%;
+	height: auto;
+}*/
+
+ul,ol{
+	list-style-type: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+img, input, select, textarea {
+	vertical-align: middle;
+}
+
+a {
+  color: blue;
+  /*text-decoration: none;*/
+}
+/*
+====================================
+  Layout
+====================================
+*/
+.bodyWrap {
+  font-family: "Letters Laughing", sans-serif;
+  line-height: 1;
+}
+
+.title {
+	padding: 40px 0;
+	color: #000;
+}
+
+.clockFrame {
+  display: inline-block;
+  padding: 15px 15px 0;
+  font-size: 100px;
+  /*font-weight: bold;*/
+  border: 5px solid #000;
+}
+
+.clockFrame > div {
+  display: inline-block;
+}
+
+.timeDisplay {
+  display: inline-block;
+  text-align: right;
+}
+
+.hoursWrap-bg,
+.minutesWrap-bg,
+.secondsWrap-bg {
+  position: absolute;
+  opacity: .15;
+}
+
+/*.hourWrap-bg-tensPlace,
+.hourWrap-bg-onesPlace,
+.hourWrap-tensPlace,
+.hourWrap-onesPlace,
+.minuteWrap-bg-tensPlace,
+.minuteWrap-bg-onesPlace,
+.minuteWrap-tensPlace,
+.minuteWrap-onesPlace,
+.secondWrap-bg-tensPlace,
+.secondWrap-bg-onesPlace,
+.secondWrap-tensPlace,
+.secondWrap-onesPlace {
+  display: inline-block;
+  width: 49px;
+  text-align: right;
+}*/
