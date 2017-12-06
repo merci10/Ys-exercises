@@ -27,8 +27,10 @@
   // modal_mainのカラーチェンジ
   $('.colorNav_item').each((index, element) => {
     const $target = $(element);
+    const colorCode = $target.data('color');
+    
+    $target.css('background-color', `#${colorCode}`);
     $target.on('click', () => {
-      const colorCode = $target.data('color');
       $('.colorBox').css('background-color', `#${colorCode}`);
     });
   });

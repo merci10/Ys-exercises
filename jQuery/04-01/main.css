@@ -184,7 +184,7 @@ a {
   display: inline-block;
   width: 30px;
   height: 30px;
-  margin-right: 20px;
+  margin-right: 10px;
   border: 1px solid #EEEEEE;
   cursor: pointer;
 }
@@ -192,8 +192,3 @@ a {
 .colorNav_item:last-child {
   margin-right: 0;
 }
-
-.is_red    { background: #f44336 }
-.is_green  { background: #4caf50 }
-.is_blue   { background: #2196f3 }
-.is_yellow { background: #ffeb3b }
