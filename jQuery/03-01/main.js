@@ -1,23 +1,27 @@
 (() => {
 
   // pagingのドットを表示
-  let slideNum = $('.slideItem').length;
-  for (let i = 0; i < slideNum; i++) {
-    $('.paging').append(`<li class="pagingIcon"></li>`);
-  }
+  $('.slideItem').each((index, element)=> {
+    const $target = $(element);
+    $('.paging').append($('<li></li>').addClass('pagingIcon')
+                .attr('data-img', $('img',$target).attr('src')));
+  });
+  $('.pagingIcon:first-child').addClass('is_active');
 
   let slideMove = () => {
-    $('.slideNav').animate({
+    $('.slideNav:not(:animated)').animate({
       'margin-top' : '-150px'
     }, 1000, () => {
-      $('.slideNav').css('margin-top', '0px')
-                    .append($('.slideItem:first'));
+      $('.slideNav').css('margin-top', '0')
+                    .append($('.slideItem:first-child'));
+      $('.pagingIcon.is_active').removeClass('is_active');
+      const activeImgURL = $('.slideItem:first-child img').attr('src');
+      $(`.pagingIcon[data-img='${activeImgURL}']`).addClass('is_active');
     });
   }
 
-  setTimeout(() => {
+  setInterval(() => {
     slideMove();
-  }, 2000);
+  }, 5000);
 
-  slideMove();
 })();

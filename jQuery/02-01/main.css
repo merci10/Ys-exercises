@@ -64,8 +64,13 @@ a {
   Layout
 ====================================
 */
+@font-face {
+	font-family: 'Digital';
+	src: url(LettersLaughingattheirExecution.ttf);
+}
+
 .bodyWrap {
-  font-family: "Letters Laughing", sans-serif;
+  font-family: 'Digital', sans-serif;
   line-height: 1;
 }
 

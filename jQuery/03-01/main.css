@@ -96,6 +96,10 @@ a {
   opacity: .3;
 }
 
+.is_active {
+	background-color: #FDD835;
+}
+
 .pagingIcon:last-child {
   margin-bottom: 0;
 }
