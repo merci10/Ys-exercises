@@ -16,7 +16,7 @@
 
     setTimeout(() => {
       renewClock();
-    }, 100);
+    }, 50);
   }
 
   renewClock();
