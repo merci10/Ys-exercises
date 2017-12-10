@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery 07-01</title>
+  <link rel="stylesheet" href="main.css">
+
+</head>
+<body>
+  <h1 class="title">住所や名前での場所検索</h1>
+  <div>
+    <input id="address" type="textbox" value="東京">
+    <input id="submit" type="button" value="geocode">
+    <input id="reset" type="button" value="Reset">
+  </div>
+  <div id="map"></div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    var resetBtn = document.getElementById('reset');
+    var mapZone = document.getElementById('map');
+
+    function initMap(lastLocation) {
+      var map = new google.maps.Map(mapZone, {
+        zoom: 8,
+        center: {lat: 35.652832, lng: 139.839478}
+      });
+      var geocoder = new google.maps.Geocoder();
+
+      if (lastLocation) {
+        map.setCenter(lastLocation);
+      }
+
+      document.getElementById('submit').addEventListener('click', function() {
+        geocodeAddress(geocoder, map);
+      });
+    }
+
+    function geocodeAddress(geocoder, resultsMap) {
+      var address = document.getElementById('address').value;
+      geocoder.geocode({'address': address}, function(results, status) {
+        if (status === 'OK') {
+          resultsMap.setCenter(results[0].geometry.location);
+          var marker = new google.maps.Marker({
+            map: resultsMap,
+            position: results[0].geometry.location
+          });
+          resetBtn.addEventListener('click', function(){
+            initMap(results[0].geometry.location);
+          });
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+    }
+
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAESbtacSB87TovWTDM-pfqEeTj0H_bmUQ&callback=initMap">
+  </script>
+</body>
+</html>
