@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery 07-02</title>
+  <link rel="stylesheet" href="main.css">
+
+</head>
+<body>
+  <h1 class="title">住所や名前での場所検索</h1>
+  <div class="formWrap">
+    <div class="startWrap">
+      <strong>出発地: </strong>
+      <input type="textbox" value="新宿御苑前" id="start">
+    </div>
+    <div class="endWrap">
+      <strong>到着地: </strong>
+      <input type="textbox" value="" id="end">
+    </div>
+    <input type="button" value="経路検索" id="submitBtn">
+  </div>
+  <div id="map"></div>
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+  <script type="text/javascript">
+  var directionsDisplay;
+  var directionsService = new google.maps.DirectionsService();
+  var map;
+
+  function initialize() {
+    directionsDisplay = new google.maps.DirectionsRenderer();
+    var tokyo = new google.maps.LatLng(35.681167, 139.767052);
+    var mapOptions = {
+      zoom: 12,
+      center: tokyo
+    }
+    map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    directionsDisplay.setMap(map);
+  }
+
+  function calcRoute() {
+    var start = document.getElementById('start').value;
+    var end = document.getElementById('end').value;
+    var request = {
+      origin: start,
+      destination: end,
+      travelMode: 'WALKING'
+    };
+    directionsService.route(request, function(result, status) {
+      if (status == 'OK') {
+        directionsDisplay.setDirections(result);
+      }
+    });
+  }
+
+  document.getElementById('submitBtn').addEventListener('click', function(){
+    calcRoute();
+  });
+
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAESbtacSB87TovWTDM-pfqEeTj0H_bmUQ&callback=initialize">
+  </script>
+</body>
+</html>
