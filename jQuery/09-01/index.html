@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery 06-01</title>
+  <link rel="stylesheet" href="main.css">
+
+</head>
+<body class="bodyWrap">
+  <h1 class="title">形式チェック(郵便番号/メールアドレス)</h1>
+
+  <div class="zipcodeWrap">
+    <p class="subject zipcode_title">郵便番号(ハイフンなし 半角数字)</p>
+    <input type="text" name="zipcode" value="" class="zipcode">
+    <p class="errMsg errMsgForZipcode">郵便番号の形式が正しくありません</p>
+  </div>
+  <div class="mailaddressWrap">
+    <p class="subject mailaddress_title">メールアドレス</p>
+    <input type="text" name="mailaddress" value="" class="mailaddress">
+    <p class="errMsg errMsgForMailaddress">メールアドレスの形式が正しくありません</p>
+  </div>
+  <button type="button" name="button">入力チェック</button>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="main.js">
+  </script>
+</body>
+</html>
