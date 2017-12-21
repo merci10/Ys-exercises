@@ -7,7 +7,7 @@
 
   const $submitBtn = $('.submitBtn');
 
-  const constellations = ["水瓶座(Aquarius)","魚座(Pisces)","牡羊座(Aries)","牡牛座(Taurus)","双子座(Gemini)",
+  const constellation_arr = ["水瓶座(Aquarius)","魚座(Pisces)","牡羊座(Aries)","牡牛座(Taurus)","双子座(Gemini)",
   "蟹座(Cancer)","獅子座(Leo)","乙女座(Virgo)","天秤座(Libra)","蠍座(Scorpio)","射手座(Sagittarius)","山羊座(Capricorn)"];
   let constellation_num;
 
@@ -41,6 +41,6 @@
       case 12: constellation_num = day >= 22 ? 11 : 10;break;
     }
 
-    $result.text(constellations[constellation_num]);
+    $result.text(constellation_arr[constellation_num]);
   });
 })();
