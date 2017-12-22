@@ -1,0 +1,90 @@
+@charset "utf-8";
+/*
+=======================================
+	Base
+=======================================
+*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, main, menu, nav, section, summary,
+time, mark, audio, video{
+	margin:0;
+	padding:0;
+  box-sizing: border-box;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,main,menu,nav,section{
+	display:block;
+}
+
+html{
+	-webkit-text-size-adjust: 100%;
+}
+
+body{
+	line-height: 1.6;
+	font-size: 14px;
+	font-family: sans-serif;
+}
+
+/*img {
+	border: 0;
+	max-width: 100%;
+	height: auto;
+}*/
+
+ul,ol{
+	list-style-type: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+img, input, select, textarea {
+	vertical-align: middle;
+}
+
+a {
+  color: blue;
+  /*text-decoration: none;*/
+}
+/*
+====================================
+  Layout
+====================================
+*/
+.bodyWrap {
+  background: -webkit-gradient(linear, center top, center bottom,
+    from(#ef5350), color-stop(0.25, #FFA726), color-stop(0.5, #66BB6A),
+     color-stop(0.75, #42A5F5), to(#AB47BC));
+}
+
+.title {
+	padding: 40px 0;
+	color: #000;
+}
+
+.numNav_item {
+  text-align: center;
+}
+
+.floating_menu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 260px;
+  height: 310px;
+  background-color: #fff;
+  border: 1px solid #000;
+}
