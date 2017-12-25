@@ -76,7 +76,7 @@ td {
   border: 1px solid #E0E0E0;
 }
 
-.newCreateField {
+.createFieldWrap {
   display: inline-block;
   margin-bottom: 15px;
   padding: 5px 15px 10px;
@@ -115,4 +115,8 @@ td {
   border: none;
   border-radius: 3px;
   cursor: pointer;
+}
+
+.constellationTr.hidden {
+	display: none;
 }
