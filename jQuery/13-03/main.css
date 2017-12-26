@@ -1,0 +1,129 @@
+@charset "utf-8";
+/*
+=======================================
+	Base
+=======================================
+*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, main, menu, nav, section, summary,
+time, mark, audio, video{
+	margin:0;
+	padding:0;
+  box-sizing: border-box;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,main,menu,nav,section{
+	display:block;
+}
+
+html{
+	-webkit-text-size-adjust: 100%;
+}
+
+body{
+	line-height: 1.6;
+	font-size: 14px;
+	font-family: sans-serif;
+}
+
+/*img {
+	border: 0;
+	max-width: 100%;
+	height: auto;
+}*/
+
+ul,ol{
+	list-style-type: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+img, input, select, textarea {
+	vertical-align: middle;
+}
+
+a {
+  color: blue;
+  /*text-decoration: none;*/
+}
+/*
+====================================
+  Layout
+====================================
+*/
+.title {
+	padding: 40px 0;
+	/* color: #000; */
+}
+
+th,
+td {
+  width: 100px;
+  text-align: center;
+  border: 1px solid #E0E0E0;
+}
+
+.editFieldWrap {
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 5px 15px 10px;
+  border-color: #9E9E9E;
+}
+
+.editBtnWrap {
+  width: 233px;
+  padding: 2px 10px;
+  text-align: center;
+  border: 1px solid #e0e0e0;
+  border-top: none;
+}
+
+.editId {
+  padding-left: 5px;
+  text-align: left;
+}
+
+.editBtn {
+  width: 200px;
+  color: #fff;
+  background-color: #42A5F5;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.searchWrap {
+  margin-bottom: 20px;
+}
+
+.searchInput {
+  width: 210px;
+  padding: 3px 5px;
+}
+
+.searchBtn {
+  color: #fff;
+  background-color: #42A5F5;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.constellationTr:hover,
+.constellationTr.bg-orange {
+  background-color: #FFB74D;
+  cursor: pointer;
+}
