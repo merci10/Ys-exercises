@@ -1,5 +1,20 @@
 (() => {
 
+  const constellations = {
+    '牡羊座': 'Aries',
+    '牡牛座': 'Taurus',
+    '双子座': 'Gemini',
+    '蟹座'  : 'Cancer',
+    '獅子座': 'Leo',
+    '乙女座': 'Virgo',
+    '天秤座': 'Libra',
+    '蠍座'  : 'Scorpio',
+    '射手座': 'Sagittarius',
+    '山羊座': 'Capricorn',
+    '水瓶座': 'Aquarius',
+    '魚座'  : 'Pisces',
+  }
+
   // newCreateFieldのエレメント
   const $newJapaneseInput =  $('.newJapaneseInput');
   const $newLatinInput = $('.newLatinInput');
