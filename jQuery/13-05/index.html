@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery 13-05</title>
+  <link rel="stylesheet" href="main.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body class="bodyWrap">
+  <h1 class="title">行の追加</h1>
+
+  <div class="searchWrap">
+    <input type="text" placeholder="日本語のキーワードで絞り込み" class="searchInput">
+    <button type="button" class="searchBtn">検索</button>
+  </div>
+
+  <select class="sortType">
+    <option value="0" data-type="number" data-sort="asc">IDで昇順</option>
+    <option value="0" data-type="number" data-sort="desc">IDで降順</option>
+    <option value="1" data-type="string" data-sort="asc">Japaneseで昇順</option>
+    <option value="1" data-type="string" data-sort="desc">Japaneseで降順</option>
+    <option value="2" data-type="string" data-sort="asc">Latinで昇順</option>
+    <option value="2" data-type="string" data-sort="desc">Latinで降順</option>
+  </select>
+
+  <table class="constellationsTable">
+    <thead class="thead">
+      <tr>
+        <th>ID</th>
+        <th>Japanese</th>
+        <th>Latin</th>
+      </tr>
+    </thead>
+    <tbody class="tbody">
+      <tr class="constellationTr">
+        <td class="tableId">1</td>
+        <td class="japaneseConstellation">牡羊座</td>
+        <td>Aries</td>
+      </tr>
+      <tr class="constellationTr">
+        <td class="tableId">2</td>
+        <td class="japaneseConstellation">牡牛座</td>
+        <td>Taurus</td>
+      </tr>
+      <tr class="constellationTr">
+        <td class="tableId">3</td>
+        <td class="japaneseConstellation">双子座</td>
+        <td>Gemini</td>
+      </tr>
+      <tr class="constellationTr">
+        <td class="tableId">4</td>
+        <td class="japaneseConstellation">蟹座</td>
+        <td>Cancer</td>
+      </tr>
+      <tr class="constellationTr">
+        <td class="tableId">5</td>
+        <td class="japaneseConstellation">獅子座</td>
+        <td>Leo</td>
+      </tr>
+      <tr class="constellationTr">
+        <td class="tableId">6</td>
+        <td class="japaneseConstellation">乙女座</td>
+        <td>Virgo</td>
+      </tr>
+      <tr class="constellationTr">
+        <td class="tableId">7</td>
+        <td class="japaneseConstellation">天秤座</td>
+        <td>Libra</td>
+      </tr>
+      <tr class="constellationTr">
+        <td class="tableId">8</td>
+        <td class="japaneseConstellation">蠍座</td>
+        <td>Scorpio</td>
+      </tr>
+      <tr class="constellationTr">
+        <td class="tableId">9</td>
+        <td class="japaneseConstellation">射手座</td>
+        <td>Sagittarius</td>
+      </tr>
+      <tr class="constellationTr">
+        <td class="tableId">10</td>
+        <td class="japaneseConstellation">山羊座</td>
+        <td>Capricorn</td>
+      </tr>
+      <tr class="constellationTr">
+        <td class="tableId">11</td>
+        <td class="japaneseConstellation">水瓶座</td>
+        <td>Aquarius</td>
+      </tr>
+      <tr class="constellationTr">
+        <td class="tableId">12</td>
+        <td class="japaneseConstellation">魚座</td>
+        <td>Pisces</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="main.js">
+  </script>
+</body>
+</html>
