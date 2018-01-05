@@ -68,3 +68,17 @@ a {
 	padding: 40px 0;
 	/* color: #000; */
 }
+
+.datepickerBtn {
+	border-radius: 3px;
+}
+
+/* ui-datepicker
+---------------------------------- */
+td.ui-datepicker-week-end a.ui-state-default{
+	color: red;
+}
+
+td.ui-datepicker-week-end:last-child a.ui-state-default {
+	color: blue;
+}
