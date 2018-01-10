@@ -6,6 +6,8 @@
   const $thead = $('.thead');
   const $tbody = $('.tbody');
 
+  let sortOrder = 1; // 1: 昇順, -1: 降順
+
   const createResultTable = () => {
     const searchInputVal = $searchInput.val();
     const reg = RegExp(searchInputVal);
@@ -25,9 +27,6 @@
   }
 
   $searchBtn.on('click', createResultTable);
-
-
-  let sortOrder = 1; // 1: 昇順, -1: 降順
 
   const rebuildTbody = (rows) => {
     const $tbody = $('.tbody');
@@ -62,6 +61,7 @@
     let col = $select.val();
     let type = $select.data('type');
     let sortType = $select.data('sort');
+
     if (sortType === 'asc') sortOrder = 1;
     else sortOrder = -1;
 
