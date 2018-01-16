@@ -76,13 +76,13 @@ a {
 
 .sideMenuWrap {
   position: absolute;
-  top: 124px;
-  left: -197px;
+  /* top: 124px;
+  left: -197px; */
   /* left: 0; */
   color: #F57C00;
 }
 
-.sideMenuInnerWrap {
+.sideMenuInner {
   position:relative;
 }
 

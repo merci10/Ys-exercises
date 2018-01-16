@@ -2,27 +2,20 @@
 
   const $document = $(document);
   const $sideMenuWrap = $('.sideMenuWrap');
-  const sideMenuWrapOffsetTop = $sideMenuWrap.offset().top;
+  const sideMenuWrapHeightPosition = $('.textWrap').offset().top; // サイドのボタンの位置(height)
+  const slideMenuWrapWidth = $('.sideMenuContent').width(); // サイドのボタンの幅
 
-  $('.sideMenuBtn:not(:animated)').on('click', () => {
-    if ($sideMenuWrap.hasClass('is-open')) {
-      $sideMenuWrap.removeClass('is-open');
-      $sideMenuWrap.animate({
-        left: '-197px'
-      }, 1000);
-    } else {
-      $sideMenuWrap.addClass('is-open');
-      $sideMenuWrap.animate({
-        left: '0'
-      }, 1000);
-    }
+  // sideMenuWrapの位置を固定
+  $sideMenuWrap.css({
+    top:  sideMenuWrapHeightPosition + 'px',
+    left: '-' + slideMenuWrapWidth + 'px'
   });
-
+  // スクロールイベント
   $document.scroll(() => {
-    if (sideMenuWrapOffsetTop === null) return;
+    if (sideMenuWrapHeightPosition === null) return;
     let scrollTop = $document.scrollTop();
 
-    if (scrollTop > sideMenuWrapOffsetTop) {
+    if (scrollTop > sideMenuWrapHeightPosition) {
       $sideMenuWrap.css({
         position: 'fixed',
         top: '0'
@@ -30,8 +23,22 @@
     } else {
       $sideMenuWrap.css({
         position: 'absolute',
-        top: '124px'
+        top: sideMenuWrapHeightPosition + 'px'
       });
+    }
+  });
+
+  $('.sideMenuBtn:not(:animated)').on('click', () => {
+    if ($sideMenuWrap.hasClass('is-open')) {
+      $sideMenuWrap.removeClass('is-open');
+      $sideMenuWrap.animate({
+        left: '-' + slideMenuWrapWidth
+      }, 1000);
+    } else {
+      $sideMenuWrap.addClass('is-open');
+      $sideMenuWrap.animate({
+        left: '0'
+      }, 1000);
     }
   });
 })();
