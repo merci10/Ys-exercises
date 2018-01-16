@@ -9,7 +9,7 @@
 <body>
   <h1 class="title">住所や名前での場所検索</h1>
   <div>
-    <input id="address" type="textbox" value="新宿御苑前">
+    <input id="address" type="textbox" value="新宿御苑">
     <input id="submit" type="button" value="geocode">
     <input id="reset" type="button" value="Reset">
   </div>
@@ -22,8 +22,8 @@
 
     function initMap(lastLocation) {
       var map = new google.maps.Map(mapZone, {
-        zoom: 8,
-        center: {lat: 35.652832, lng: 139.839478}
+        zoom: 15,
+        center: {lat: 35.685176, lng: 139.710052}
       });
       var geocoder = new google.maps.Geocoder();
 
