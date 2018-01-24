@@ -7,8 +7,8 @@
 
   // sideMenuWrapの位置を固定
   $sideMenuWrap.css({
-    top:  sideMenuWrapHeightPosition + 'px',
-    left: '-' + slideMenuWrapWidth + 'px'
+    top:  `${sideMenuWrapHeightPosition}px`,
+    left: `-${slideMenuWrapWidth}px` // 見えないようにするためにwidth分マイナスにする
   });
   // スクロールイベント
   $document.scroll(() => {
@@ -32,7 +32,7 @@
     if ($sideMenuWrap.hasClass('is-open')) {
       $sideMenuWrap.removeClass('is-open');
       $sideMenuWrap.animate({
-        left: '-' + slideMenuWrapWidth
+        left: `-${slideMenuWrapWidth}`
       }, 1000);
     } else {
       $sideMenuWrap.addClass('is-open');
