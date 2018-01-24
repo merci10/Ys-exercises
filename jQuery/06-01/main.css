@@ -86,6 +86,6 @@ a {
   cursor: pointer;
 }
 
-.is_active {
+.categoryNav_item.is_active {
   background-color: #FFCC80;
 }
