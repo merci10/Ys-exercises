@@ -82,7 +82,7 @@ a {
   user-select: none;
 }
 
-.openBtn.is-active {
+.openBtn.is_active {
   margin-top: 3px;
   box-shadow: none;
 }
