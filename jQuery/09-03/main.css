@@ -69,8 +69,8 @@ a {
 	color: #000;
 }
 
-.kanjiDateWrap,
-.simpleDateWrap {
+.kanjiWrap,
+.slashWrap {
 	display: flex;
 	justify-content: space-between;
 	width: 270px;
