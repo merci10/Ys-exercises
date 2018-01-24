@@ -2,24 +2,24 @@
 
   const $input = $('.input');
   const $searchBtn = $('.searchBtn');
-  const $constellationsTable = $('.constellationsTable');
-  const $japaneseConstellationsTd = $('.japaneseTd');
+  const $table = $('.constellationsTable');
   const $thead = $('.thead');
+  const $trs = $('.tr');
 
   const appendTr = (reg) => {
-    $japaneseConstellationsTd.each((index, td) => {
+    $japaneseTds.each((index, td) => {
       const $td = $(td);
       const constellationName = $td.text();
       const parentTr = $td.parent();
 
       if(constellationName.match(reg)) {
-        $constellationsTable.append(parentTr);
+        $table.append(parentTr);
       }
     })
   }
 
   const generateResultTable = () => {
-    $constellationsTable.empty()
+    $table.empty()
                         .append($thead);
     const inputVal = $input.val();
     const reg = RegExp(inputVal);
@@ -27,8 +27,8 @@
     appendTr(reg);
 
     if (inputVal === '') {
-      $japaneseConstellationsTd.each((index, td) => {
-        $constellationsTable.append($(td).parent());
+      $japaneseTds.each((index, td) => {
+        $table.append($(td).parent());
       })
     }
   }
