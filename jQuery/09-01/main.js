@@ -6,10 +6,12 @@
     const $errMsgForZipcode = $('.errMsgForZipcode');
     const $errMsgForMailaddress = $('.errMsgForMailaddress');
 
-    if (zipcode.match(/^\d{7}$/)) $errMsgForZipcode.removeClass('is-visible');
+    const zipcode_reg = /^\d{7}$/;
+    if (zipcode.match(zipcode_reg)) $errMsgForZipcode.removeClass('is-visible');
     else $errMsgForZipcode.addClass('is-visible');
 
-    if (mailaddress.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) $errMsgForMailaddress.removeClass('is-visible');
+    const mailaddress_reg = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (mailaddress.match(mailaddress_reg)) $errMsgForMailaddress.removeClass('is-visible');
     else $errMsgForMailaddress.addClass('is-visible');
   });
 
