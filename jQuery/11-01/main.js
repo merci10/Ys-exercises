@@ -7,8 +7,7 @@
 
   for (let i = 1; i < 301; i++) {
     const $li = $('<li>').addClass('numNav_item');
-    $li.text(i);
-    $numNav.append($li);
+    $numNav.append($li.text(i));
   }
 
   $(window).scroll(() => {
@@ -22,7 +21,7 @@
       });
     } else {
       $floatingMenu.css({
-        top: '0px',
+        top: '0',
         bottom: ''
       });
     }
