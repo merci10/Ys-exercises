@@ -4,24 +4,24 @@
   const $btn2 = $('.btn2');
   const $resetBtn = $('.resetBtn');
   const $originalInput = $('.originalInput');
-  const $firstInput = $('.firstInput');
-  const $secondInput = $('.secondInput');
+  const $resultInput1 = $('.resultInput1');
+  const $resultInput2 = $('.resultInput2');
 
   $btn1.on('click', () => {
     const inputText = $originalInput.val();
     const newText = inputText.replace('J-PHONE', 'Vodafone');
-    $firstInput.val(newText);
+    $resultInput1.val(newText);
   });
 
   $btn2.on('click', () => {
-    const inputText = $firstInput.val();
+    const inputText = $resultInput1.val();
     const newText = inputText.replace('Vodafone', 'SoftBank');
-    $secondInput.val(newText);
+    $resultInput2.val(newText);
   });
 
   $resetBtn.on('click', () => {
     $originalInput.val('');
-    $firstInput.val('');
-    $secondInput.val('');
+    $resultInput1.val('');
+    $resultInput2.val('');
   });
 })();
