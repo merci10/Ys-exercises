@@ -76,14 +76,14 @@ td {
   border: 1px solid #E0E0E0;
 }
 
-.createFieldWrap {
+.addField {
   display: inline-block;
   margin-bottom: 15px;
   padding: 5px 15px 10px;
   border-color: #9E9E9E;
 }
 
-.createBtnWrap {
+.addBtnWrap {
   width: 233px;
   padding: 2px 10px;
   text-align: center;
@@ -91,7 +91,7 @@ td {
   border-top: none;
 }
 
-.createBtn {
+.addBtn {
   width: 200px;
   color: #fff;
   background-color: #42A5F5;
