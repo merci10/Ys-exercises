@@ -1,73 +1,72 @@
 (() => {
-
-  const japaneseConstellations = [
-    '牡羊座',
-    '牡牛座',
-    '双子座',
-    '蟹座',
-    '獅子座',
-    '乙女座',
-    '天秤座',
-    '蠍座',
-    '射手座',
-    '山羊座',
-    '水瓶座',
-    '魚座'
+  // tableの初期データ
+  // ---------------------------------------------------------------------------
+  const constellations = [
+    {id: 1,  jpName: '牡羊座', latinName: 'Aries'},
+    {id: 2,  jpName: '牡牛座', latinName: 'Taurus'},
+    {id: 3,  jpName: '双子座', latinName: 'Gemini'},
+    {id: 4,  jpName: '蟹座',   latinName: 'Cancer'},
+    {id: 5,  jpName: '獅子座', latinName: 'Leo'},
+    {id: 6,  jpName: '乙女座', latinName: 'Virgo'},
+    {id: 7,  jpName: '天秤座', latinName: 'Libra'},
+    {id: 8,  jpName: '蠍座',   latinName: 'Scorpio'},
+    {id: 9,  jpName: '射手座', latinName: 'Sagittarius'},
+    {id: 10, jpName: '山羊座', latinName: 'Capricorn'},
+    {id: 11, jpName: '水瓶座', latinName: 'Aquarius'},
+    {id: 12, jpName: '魚座',   latinName: 'Pisces'},
   ];
 
-  const latinConstellations = [
-    'Aries',
-    'Taurus',
-    'Gemini',
-    'Cancer',
-    'Leo',
-    'Virgo',
-    'Libra',
-    'Scorpio',
-    'Sagittarius',
-    'Capricorn',
-    'Aquarius',
-    'Pisces'
-  ];
 
-  // eidtFieldWrapのエレメント
+  // 変数宣言
+  // --------------------------------------------------------------------------
+  // eidtFieldのエレメント
   const $editId = $('.editId');
-  const $editJapaneseInput =  $('.editJapaneseInput');
-  const $editLatinInput = $('.editLatinInput');
+  const $japaneseInput =  $('.japaneseInput');
+  const $latinInput = $('.latinInput');
   const $editBtn = $('.editBtn');
-
   // searchWrapのエレメント
   const $searchInput = $('.searchInput');
   const $searchBtn = $('.searchBtn');
+  // 編集するテーブル
+  const $thead = $('.tbody');
 
-  const $constellationsTable = $('.constellationsTable');
-  const $thead = $('.thead');
 
-  // 画面が表示された時にテーブルを作成する
+  // tableを作成する関数
+  // ---------------------------------------------------------------------------
+  // 配列のデータを使い完璧なテーブルを作成する
   const createPerfectTable = () => {
-    const length = japaneseConstellations.length;
-    for (let i = 0; i < length; i++) {
-      const idTd       = $('<td>').text(i + 1);
-      const japaneseTd = $('<td>').text(japaneseConstellations[i]).addClass('japaneseConstellation');
-      const latinTd    = $('<td>').text(latinConstellations[i]);
-      const tr         = $('<tr>').addClass('constellationTr')
-                          .append(idTd).append(japaneseTd).append(latinTd);
-      $constellationsTable.append(tr);
+    $tbody.empty();
+    for (let i = 0; i < constellations.length; i++) {
+      const $idTd       = $('<td>').text(constellations[i].id);
+      const $japaneseTd = $('<td>').text(constellations[i].jpName).addClass('japaneseTd');
+      const $latinTd    = $('<td>').text(constellations[i].latinName);
+      const $tr         = $('<tr>').append($idTd)
+                                  .append($japaneseTd)
+                                  .append($latinTd);
+      $tbody.append($tr);
+    }
+  }
+  // 渡された正規表現に当てはまるテーブルを作成する
+  const createResultTable = (reg) => {
+    $tbody.empty();
+    for (let i = 0; i < constellations.length; i++) {
+      const jpName = constellations[i].jpName;
+      if (jpName.match(reg)) {
+        const $idTd       = $('<td>').text(constellations[i].id);
+        const $japaneseTd = $('<td>').text(jpName).addClass('japaneseTd');
+        const $latinTd    = $('<td>').text(constellations[i].latinName);
+        const $tr         = $('<tr>').append($idTd)
+                                     .append($japaneseTd)
+                                     .append($latinTd);
+        $tbody.append($tr);
+      }
+      continue;
     }
   }
 
-  $constellationsTable.on('click', '.constellationTr', (event) => {
-    const $target = $(event.target).parent();
-    $('.bg-orange').removeClass('bg-orange');
-    $target.addClass('bg-orange');
-    const id       = $('td:eq(0)', $target).text();
-    const japanese = $('td:eq(1)', $target).text();
-    const latin    = $('td:eq(2)', $target).text();
-    $editId.text(id);
-    $editJapaneseInput.val(japanese);
-    $editLatinInput.val(latin);
-  });
 
+  // editBtn関連
+  // ---------------------------------------------------------------------------
   const editElement = (id, japanese, latin) => {
     const $editTr = $('.constellationTr.bg-orange');
     $('td:eq(0)', $editTr).text(id);
@@ -78,8 +77,8 @@
 
   $editBtn.on('click', () => {
     const id = $editId.text();
-    const japanese = $editJapaneseInput.val();
-    const latin = $editLatinInput.val();
+    const japanese = $japaneseInput.val();
+    const latin = $latinInput.val();
     // editFieldのvalidate
     if (japanese === '' || latin === '') {
       alert('値が正確に入力されていません');
@@ -88,42 +87,32 @@
     editElement(id, japanese, latin);
     // クリックしたらインップトの値を消す
     $editId.text('');
-    $editJapaneseInput.val('');
-    $editLatinInput.val('');
+    $japaneseInput.val('');
+    $latinInput.val('');
   });
 
-  const createMatchTable = () => {
-    // 最初にtableの要素をからにしてthead部分を入れる
-    $constellationsTable.empty()
-                        .append($thead);
-    const searchInputVal = $searchInput.val();
-    const reg = RegExp(searchInputVal);
-    japaneseConstellations.forEach((jpName, i) => {
-      if (jpName.match(reg)) {
-        const idTd       = $('<td>').text(i + 1);
-        const japaneseTd = $('<td>').text(japaneseConstellations[i]).addClass('japaneseConstellation');
-        const latinTd    = $('<td>').text(latinConstellations[i]);
-        const tr         = $('<tr>').addClass('constellationTr')
-                            .append(idTd).append(japaneseTd).append(latinTd);
-        $constellationsTable.append(tr);
-      }
-    });
-    // $('.constellationTr').each((index, tr) => {
-    //   const $tr = $(tr);
-    //   const constellationName = $tr.find('.japaneseConstellation').text();
-    //
-    //   if(constellationName.match(reg)) $constellationsTable.append($tr);
-    // });
-    // inputがからの場合全てのtrを表示する
-    if (searchInputVal === '') {
-      $('.constellationTr').each((index, tr) => {
-        $constellationsTable.append($(tr));
-      });
+
+  // searchBtnのclickアクション
+  // ---------------------------------------------------------------------------
+  // searchInputが空の時に完璧なテーブルを作成しclickアクションを中断する
+  const validateSearchInput = (val) => {
+    if (val === '') {
+      createPerfectTable();
+      return;
     }
   }
 
-  $searchBtn.on('click', createMatchTable);
+  $searchBtn.on('click', () => {
+    const searchVal = $searchInput.val();
+    const reg = RegExp(searchVal);
 
+    validateSearchInput(searchVal);
+    createResultTable(reg);
+  });
+
+
+  // 初期設定(画面ロード時)
+  // ---------------------------------------------------------------------------
   createPerfectTable();
 
 })();
