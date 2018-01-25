@@ -1,39 +1,27 @@
 (() => {
 
   const $input = $('.input');
-  const $searchBtn = $('.searchBtn');
-  const $table = $('.constellationsTable');
-  const $thead = $('.thead');
+  const $btn = $('.searchBtn');
   const $trs = $('.tr');
 
-  const appendTr = (reg) => {
-    $japaneseTds.each((index, td) => {
-      const $td = $(td);
-      const constellationName = $td.text();
-      const parentTr = $td.parent();
-
-      if(constellationName.match(reg)) {
-        $table.append(parentTr);
-      }
-    })
-  }
-
-  const generateResultTable = () => {
-    $table.empty()
-                        .append($thead);
-    const inputVal = $input.val();
-    const reg = RegExp(inputVal);
-
-    appendTr(reg);
-
-    if (inputVal === '') {
-      $japaneseTds.each((index, td) => {
-        $table.append($(td).parent());
-      })
+  $btn.on('click', () => {
+    // テーブルを再表示
+    $trs.removeClass('is_hidden');
+    const val = $input.val();
+    if (val === '') {
+      return;
     }
-  }
 
-  $searchBtn.on('click', () => {
-    generateResultTable();
-  })
+    // inputされた文字のRegularExpressionを作成
+    const reg = RegExp(val);
+    $trs.each((index, tr) => {
+      const $tr = $(tr)
+      // 星座の日本語名取得
+      const jpName = $tr.find('.japaneseTd').text();
+      // matchしなかったtrを隠す
+      if (!jpName.match(reg)) {
+        $tr.addClass('is_hidden');
+      }
+    });
+  });
 })();

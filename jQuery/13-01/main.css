@@ -91,3 +91,7 @@ a {
   text-align: center;
   border: 1px solid #E0E0E0;
 }
+
+.tr.is_hidden {
+	display: none;
+}
