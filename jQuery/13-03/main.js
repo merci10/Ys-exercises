@@ -28,26 +28,29 @@
   const $searchInput = $('.searchInput');
   const $searchBtn = $('.searchBtn');
   // 編集するテーブル
-  const $thead = $('.tbody');
+  const $tbody = $('.tbody');
 
 
   // tableを作成する関数
   // ---------------------------------------------------------------------------
   // 配列のデータを使い完璧なテーブルを作成する
   const createPerfectTable = () => {
+    // 最初にテーブルをからにする
     $tbody.empty();
     for (let i = 0; i < constellations.length; i++) {
       const $idTd       = $('<td>').text(constellations[i].id);
       const $japaneseTd = $('<td>').text(constellations[i].jpName).addClass('japaneseTd');
       const $latinTd    = $('<td>').text(constellations[i].latinName);
-      const $tr         = $('<tr>').append($idTd)
-                                  .append($japaneseTd)
-                                  .append($latinTd);
+      const $tr         = $('<tr>').addClass('constellationTr')
+                                   .append($idTd)
+                                   .append($japaneseTd)
+                                   .append($latinTd);
       $tbody.append($tr);
     }
   }
   // 渡された正規表現に当てはまるテーブルを作成する
   const createResultTable = (reg) => {
+    // 最初にテーブルをからにする
     $tbody.empty();
     for (let i = 0; i < constellations.length; i++) {
       const jpName = constellations[i].jpName;
@@ -55,7 +58,8 @@
         const $idTd       = $('<td>').text(constellations[i].id);
         const $japaneseTd = $('<td>').text(jpName).addClass('japaneseTd');
         const $latinTd    = $('<td>').text(constellations[i].latinName);
-        const $tr         = $('<tr>').append($idTd)
+        const $tr         = $('<tr>').addClass('constellationTr')
+                                     .append($idTd)
                                      .append($japaneseTd)
                                      .append($latinTd);
         $tbody.append($tr);
@@ -65,30 +69,62 @@
   }
 
 
-  // editBtn関連
+  // editFieldに値を入れるまでの処理
   // ---------------------------------------------------------------------------
-  const editElement = (id, japanese, latin) => {
-    const $editTr = $('.constellationTr.bg-orange');
-    $('td:eq(0)', $editTr).text(id);
-    $('td:eq(1)', $editTr).text(japanese);
-    $('td:eq(2)', $editTr).text(latin);
-    $editTr.removeClass('bg-orange');
+  const setEditField = (tr) => {
+    const id       = $('td:nth-child(1)', tr).text();
+    const japanese = $('td:nth-child(2)', tr).text();
+    const latin    = $('td:nth-child(3)', tr).text();
+    $editId.text(id);
+    $japaneseInput.val(japanese);
+    $latinInput.val(latin);
   }
+  // 選択されたtrのbackgroundを変える
+  const switchBgTrColor = (tr) => {
+    $('.bg_orange').removeClass('bg_orange');
+    tr.addClass('bg_orange');
+  }
+  // tbodyの中のtrをクリックした時の処理
+  $tbody.on('click', '.constellationTr', (el) => {
+    const $targetTr = $(el.currentTarget);
+    setEditField($targetTr);
+    switchBgTrColor($targetTr);
+  });
 
-  $editBtn.on('click', () => {
-    const id = $editId.text();
-    const japanese = $japaneseInput.val();
-    const latin = $latinInput.val();
-    // editFieldのvalidate
+
+  // editBtnのclickアクション
+  // ---------------------------------------------------------------------------
+  // idから編集するデータを取得して編集する
+  const editData = (id, japanese, latin) => {
+    const constellation = constellations[id - 1];
+    constellation.id        = id;
+    constellation.jpName    = japanese;
+    constellation.latinName = latin;
+  }
+  // editBtnを押した時のvalidation
+  const validateEditInputs = (japanese, latin) => {
     if (japanese === '' || latin === '') {
       alert('値が正確に入力されていません');
       return;
     }
-    editElement(id, japanese, latin);
-    // クリックしたらインップトの値を消す
+  }
+  // EditFieldの値を空にする
+  const initEditInputs = () => {
     $editId.text('');
     $japaneseInput.val('');
     $latinInput.val('');
+  }
+
+  $editBtn.on('click', () => {
+    const id        = $editId.text();
+    const japanese  = $japaneseInput.val();
+    const latin     = $latinInput.val();
+
+    validateEditInputs(japanese, latin);
+    editData(id, japanese, latin);
+    createPerfectTable();
+    $('.bg_orange').removeClass('bg_orange');
+    initEditInputs();
   });
 
 

@@ -123,7 +123,7 @@ td {
 }
 
 .constellationTr:hover,
-.constellationTr.bg-orange {
+.constellationTr.bg_orange {
   background-color: #FFB74D;
   cursor: pointer;
 }
