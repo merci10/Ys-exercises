@@ -93,10 +93,6 @@ td {
   cursor: pointer;
 }
 
-.constellationTr.hidden {
-	display: none;
-}
-
 .deleteBtn {
 	color: #000;
 	background-color: #fff;

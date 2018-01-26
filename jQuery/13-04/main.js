@@ -1,121 +1,122 @@
 (() => {
+  // tableの初期データ
+  // ---------------------------------------------------------------------------
+  const constellations = [
+    {id: 1,  jpName: '牡羊座', latinName: 'Aries'},
+    {id: 2,  jpName: '牡牛座', latinName: 'Taurus'},
+    {id: 3,  jpName: '双子座', latinName: 'Gemini'},
+    {id: 4,  jpName: '蟹座',   latinName: 'Cancer'},
+    {id: 5,  jpName: '獅子座', latinName: 'Leo'},
+    {id: 6,  jpName: '乙女座', latinName: 'Virgo'},
+    {id: 7,  jpName: '天秤座', latinName: 'Libra'},
+    {id: 8,  jpName: '蠍座',   latinName: 'Scorpio'},
+    {id: 9,  jpName: '射手座', latinName: 'Sagittarius'},
+    {id: 10, jpName: '山羊座', latinName: 'Capricorn'},
+    {id: 11, jpName: '水瓶座', latinName: 'Aquarius'},
+    {id: 12, jpName: '魚座',   latinName: 'Pisces'},
+  ];
 
-  // deleteした時に配列の要素を削除するとIDと配列のIndexに差異ができてtableをうまく作成すること難しいのでボツ
-  // const japaneseConstellations = [
-  //   '牡羊座',
-  //   '牡牛座',
-  //   '双子座',
-  //   '蟹座',
-  //   '獅子座',
-  //   '乙女座',
-  //   '天秤座',
-  //   '蠍座',
-  //   '射手座',
-  //   '山羊座',
-  //   '水瓶座',
-  //   '魚座'
-  // ];
-  // const latinConstellations = [
-  //   'Aries',
-  //   'Taurus',
-  //   'Gemini',
-  //   'Cancer',
-  //   'Leo',
-  //   'Virgo',
-  //   'Libra',
-  //   'Scorpio',
-  //   'Sagittarius',
-  //   'Capricorn',
-  //   'Aquarius',
-  //   'Pisces'
-  // ];
 
+  // 変数宣言
+  // --------------------------------------------------------------------------
+  //searchWrapのエレメント
   const $searchInput = $('.searchInput');
   const $searchBtn = $('.searchBtn');
 
-  const $thead = $('.thead');
-  const $constellationsTable = $('.constellationsTable');
-  const $deleteBtns = $('.deleteBtn');
+  const $tbody = $('.tbody');
 
-  const createResultTable = () => {
-    const searchInputVal = $searchInput.val();
-    const reg = RegExp(searchInputVal);
-
-    $('.constellationTr').each((i, e) => {
-      $(e).addClass('hidden');
-    })
-
-    $('.japaneseConstellation').each((i, e) => {
-      const $el = $(e);
-      const jpName = $el.text();
-      const $parentTr = $el.parent();
+  // tableを作成する関数
+  // ---------------------------------------------------------------------------
+  // 配列のデータを使い完璧なテーブルを作成する
+  const createPerfectTable = () => {
+    // 最初にテーブルをからにする
+    $tbody.empty();
+    for (let i = 0; i < constellations.length; i++) {
+      const $deleteBtn  = $(`<td><button type="button" class="deleteBtn">削除</button></td>`);
+      const $idTd       = $('<td>').text(constellations[i].id).addClass('idTd');
+      const $japaneseTd = $('<td>').text(constellations[i].jpName).addClass('japaneseTd');
+      const $latinTd    = $('<td>').text(constellations[i].latinName);
+      const $tr         = $('<tr>').addClass('constellationTr')
+                                   .append($deleteBtn)
+                                   .append($idTd)
+                                   .append($japaneseTd)
+                                   .append($latinTd);
+      $tbody.append($tr);
+    }
+  }
+  // 渡された正規表現に当てはまるテーブルを作成する
+  const createResultTable = (reg) => {
+    // 最初にテーブルをからにする
+    $tbody.empty();
+    for (let i = 0; i < constellations.length; i++) {
+      const jpName = constellations[i].jpName;
       if (jpName.match(reg)) {
-        $parentTr.removeClass('hidden');
+        const $deleteBtn  = $(`<td><button type="button" class="deleteBtn">削除</button></td>`);
+        const $idTd       = $('<td>').text(constellations[i].id);
+        const $japaneseTd = $('<td>').text(jpName).addClass('japaneseTd');
+        const $latinTd    = $('<td>').text(constellations[i].latinName);
+        const $tr         = $('<tr>').addClass('constellationTr')
+                                     .append($deleteBtn)
+                                     .append($idTd)
+                                     .append($japaneseTd)
+                                     .append($latinTd);
+        $tbody.append($tr);
       }
-    });
+      continue;
+    }
   }
 
-  // テーブルの要素を削除する
-  const deleteTr = (e) => {
-    const $target = $(e.target);
-    const deleteTarget = $target.parents('.constellationTr');
-    deleteTarget.remove();
+
+  // deleteBtn関連
+  // --------------------------------------------------------------------------
+  // DOMから取得したidと配列の要素のidが同じものを削除する
+  const deleteData = (targetId) => {
+    constellations.forEach((constellation, index) => {
+      if (constellation.id === targetId) {
+        constellations.splice(index, 1);
+      }
+    })
   }
 
-  $deleteBtns.each((i,e) => {
-    $(e).on('click', deleteTr);
+  // deleteBtnをクリックした時のアクション
+  // 新しく作成したテーブルでもdeleteBtnが発火するようにon clickを使っている
+  $tbody.on('click', '.deleteBtn', (el) => {
+    console.log(el);
+    const $targetTr = $(el.target).parents('.constellationTr');
+    // 削除するテーブルのidを取得(integer)
+    const targetId_str = $targetTr.find('.idTd').text();
+    const targetId_int = parseInt(targetId_str);
+
+    deleteData(targetId_int);
+    createPerfectTable();
+  })
+
+
+  // searchBtnのclickアクション
+  // ---------------------------------------------------------------------------
+  // searchInputが空の時に完璧なテーブルを作成しclickアクションを中断する
+  // ※必要ないぽい
+  // const validateSearchInput = (val) => {
+  //   if (val === '') {
+  //     createPerfectTable();
+  //     return false;
+  //   }
+  //   return ture;
+  // }
+  $searchBtn.on('click', () => {
+    const searchVal = $searchInput.val();
+    const reg = RegExp(searchVal);
+
+    // const bool = validateSearchInput(searchVal);
+    // if (bool) {
+    //   createResultTable();
+    // }
+    createResultTable(reg);
   });
 
-  $searchBtn.on('click', createResultTable);
 
-  // // 検索後のテーブルを作成する
-  // const createResultTable = () => {
-  //   // thead以外のテーブル要素を消す
-  //   $constellationsTable.empty().append($thead);
-  //
-  //   const searchInputVal = $searchInput.val();
-  //   const reg = RegExp(searchInputVal);
-  //
-  //   japaneseConstellations.forEach((jpName, i) => {
-  //     if (jpName.match(reg)) {
-  //       const deleteBtn = $('<td>').append(`<button type='text' class='deleteBtn'>削除</button>`).on('click', deleteTr);
-  //       const id = $('<td>').addClass('id').text(`${i + 1}`);
-  //       const japanese = $('<td>').text(japaneseConstellations[i]);
-  //       const latin = $('<td>').text(latinConstellations[i]);
-  //       const tr = $('<tr>').addClass('constellationTr')
-  //                  .append(deleteBtn).append(id).append(japanese).append(latin);
-  //       $constellationsTable.append(tr);
-  //     }
-  //   });
-  // }
-  //
-  // // テーブルの要素を削除する
-  // const deleteTr = (e) => {
-  //   const $target = $(e.target);
-  //   const deleteTarget = $target.parents('.constellationTr');
-  //   deleteTarget.remove();
-  //   // 配列からも削除する
-  //   const deleteIndex = $target.siblings('.id') - 1;
-  //   japaneseConstellations.splice(deleteIndex, 1);
-  //   console.log(japaneseConstellations);
-  //   latinConstellations.splice(deleteIndex, 1);
-  //   console.log(latinConstellations);
-  // }
-  //
-  // // 画面ロード時にテーブルを作成する
-  // const initTable = () => {
-  //   for (let i = 0; i < japaneseConstellations.length; i++) {
-  //     const deleteBtn = $('<td>').append(`<button type='text' class='deleteBtn'>削除</button>`).on('click', deleteTr);
-  //     const id = $('<td>').addClass('id').text(`${i + 1}`);
-  //     const japanese = $('<td>').text(japaneseConstellations[i]);
-  //     const latin = $('<td>').text(latinConstellations[i]);
-  //     const tr = $('<tr>').addClass('constellationTr')
-  //                .append(deleteBtn).append(id).append(japanese).append(latin);
-  //     $constellationsTable.append(tr);
-  //   }
-  // }
-  //
-  // initTable();
-  // $searchBtn.on('click', createResultTable);
+  // 初期設定(画面ロード時)
+  // ---------------------------------------------------------------------------
+  createPerfectTable();
 
 })();
