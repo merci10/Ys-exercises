@@ -75,12 +75,13 @@
     newConstellation.latinName = latin;
     constellations.push(newConstellation);
   }
-  // addFieldのinputが空でないことを確認
+  // addFieldのinputが空でないことを確認(真偽値を返す)
   const validateAddInputs = (japanese, latin) => {
     if (japanese === '' || latin === '') {
       alert('値が正確に入力されていません');
-      return;
+      return false;
     }
+    return true;
   }
   // addBtnを押したらinputを空にする
   const initAddInputs = () => {
@@ -91,30 +92,35 @@
   $addBtn.on('click', () => {
     const japanese = $japaneseInput.val();
     const latin = $latinInput.val();
+    const bool = validateAddInputs(japanese, latin);
 
-    validateAddInputs(japanese, latin);
-    addConstellation(japanese, latin);
-    createPerfectTable();
-    initAddInputs();
+    if (bool) {
+      addConstellation(japanese, latin);
+      createPerfectTable();
+      initAddInputs();
+    }
   });
 
 
   // searchBtnのclickアクション
   // ---------------------------------------------------------------------------
   // searchInputが空の時に完璧なテーブルを作成しclickアクションを中断する
-  const validateSearchInput = (val) => {
-    if (val === '') {
-      createPerfectTable();
-      return;
-    }
-  }
-  
+  // ※必要ないぽい
+  // const validateSearchInput = (val) => {
+  //   if (val === '') {
+  //     createPerfectTable();
+  //     return false;
+  //   }
+  //   return ture;
+  // }
   $searchBtn.on('click', () => {
     const searchVal = $searchInput.val();
     const reg = RegExp(searchVal);
 
-    validateSearchInput(searchVal);
-    createResultTable(reg);
+    // const bool = validateSearchInput(searchVal);
+    // if (bool) {
+     　　 createResultTable();
+    // }
   });
 
 
