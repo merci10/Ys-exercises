@@ -96,17 +96,21 @@
   // ---------------------------------------------------------------------------
   // idから編集するデータを取得して編集する
   const editData = (id, japanese, latin) => {
+    // idに1を引いた数がdataのindex番号になる
     const constellation = constellations[id - 1];
-    constellation.id        = id;
     constellation.jpName    = japanese;
     constellation.latinName = latin;
   }
   // editBtnを押した時のvalidation
-  const validateEditInputs = (japanese, latin) => {
-    if (japanese === '' || latin === '') {
+  const validateEditField = (id, japanese, latin) => {
+    if (id === '') {
+      alert('テーブルから編集したい要素を選択してください');
+      return false;
+    } else if (japanese === '' || latin === '') {
       alert('値が正確に入力されていません');
-      return;
+      return false;
     }
+    return true;
   }
   // EditFieldの値を空にする
   const initEditInputs = () => {
@@ -119,30 +123,36 @@
     const id        = $editId.text();
     const japanese  = $japaneseInput.val();
     const latin     = $latinInput.val();
+    const bool = validateEditField(id, japanese, latin);
 
-    validateEditInputs(japanese, latin);
-    editData(id, japanese, latin);
-    createPerfectTable();
-    $('.bg_orange').removeClass('bg_orange');
-    initEditInputs();
+    if (bool) {
+      editData(id, japanese, latin);
+      createPerfectTable();
+      $('.bg_orange').removeClass('bg_orange');
+      initEditInputs();
+    }
   });
 
 
   // searchBtnのclickアクション
   // ---------------------------------------------------------------------------
   // searchInputが空の時に完璧なテーブルを作成しclickアクションを中断する
-  const validateSearchInput = (val) => {
-    if (val === '') {
-      createPerfectTable();
-      return;
-    }
-  }
-
+  // ※必要ないぽい
+  // const validateSearchInput = (val) => {
+  //   if (val === '') {
+  //     createPerfectTable();
+  //     return false;
+  //   }
+  //   return ture;
+  // }
   $searchBtn.on('click', () => {
     const searchVal = $searchInput.val();
     const reg = RegExp(searchVal);
 
-    validateSearchInput(searchVal);
+    // const bool = validateSearchInput(searchVal);
+    // if (bool) {
+    //   createResultTable();
+    // }
     createResultTable(reg);
   });
 
