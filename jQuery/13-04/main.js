@@ -52,7 +52,7 @@
       const jpName = constellations[i].jpName;
       if (jpName.match(reg)) {
         const $deleteBtn  = $(`<td><button type="button" class="deleteBtn">削除</button></td>`);
-        const $idTd       = $('<td>').text(constellations[i].id);
+        const $idTd       = $('<td>').text(constellations[i].id).addClass('idTd');
         const $japaneseTd = $('<td>').text(jpName).addClass('japaneseTd');
         const $latinTd    = $('<td>').text(constellations[i].latinName);
         const $tr         = $('<tr>').addClass('constellationTr')
@@ -94,23 +94,10 @@
 
   // searchBtnのclickアクション
   // ---------------------------------------------------------------------------
-  // searchInputが空の時に完璧なテーブルを作成しclickアクションを中断する
-  // ※必要ないぽい
-  // const validateSearchInput = (val) => {
-  //   if (val === '') {
-  //     createPerfectTable();
-  //     return false;
-  //   }
-  //   return ture;
-  // }
   $searchBtn.on('click', () => {
     const searchVal = $searchInput.val();
     const reg = RegExp(searchVal);
 
-    // const bool = validateSearchInput(searchVal);
-    // if (bool) {
-    //   createResultTable();
-    // }
     createResultTable(reg);
   });
 
