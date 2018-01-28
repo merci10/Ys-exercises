@@ -66,19 +66,29 @@ a {
 */
 .title {
 	padding: 40px 0;
-	/* color: #000; */
 }
 
-.datepickerBtn {
+.btnWrap,
+.inputWrap {
+	display: inline-block;
+}
+
+.inputWrap {
+	padding-top: 10px;
+}
+
+.openBtn {
+	margin-left: 10px;
+	padding: 5px 5px;
+	color: #fff;
+	background-color: #757575;
+	border: none;
 	border-radius: 3px;
+	outline: none;
+	cursor: pointer;
 }
 
-/* ui-datepicker
----------------------------------- */
-td.ui-datepicker-week-end a.ui-state-default{
-	color: red;
-}
-
-td.ui-datepicker-week-end:last-child a.ui-state-default {
-	color: blue;
+.dateInput {
+	padding: 5px 2px;
+	width: 150px;
 }

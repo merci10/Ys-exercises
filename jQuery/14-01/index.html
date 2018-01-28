@@ -10,11 +10,27 @@
 <body class="bodyWrap">
   <h1 class="title">ポップアップ表示の日付変更</h1>
 
-  <button class="datepickerBtn">カレンダー</button>
-  <input type="text" class="datepicker">
+  <div class="btnWrap">
+    <button class="openBtn">カレンダー</button>
+  </div>
+
+  <div class="inputWrap">
+    <input class="dateInput">
+  </div>
+
+  <div class="gray_bg"></div>
+  <div class="modal_window">
+    <div class="modal_header">
+      <div class="modal_title"></div>
+    </div>
+    <div class="modal_main">
+      <div class="calendar">
+
+      </div>
+    </div>
+  </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://js.cybozu.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script type="text/javascript" src="main.js">
   </script>
 </body>
