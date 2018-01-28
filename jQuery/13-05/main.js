@@ -1,5 +1,6 @@
 (() => {
-
+  // 変数宣言
+  // -----------------------------------------------------------------------------
   const $searchInput = $('.searchInput');
   const $searchBtn = $('.searchBtn');
 
@@ -8,6 +9,10 @@
 
   let sortOrder = 1; // 1: 昇順, -1: 降順
 
+
+  // searchBtnのクリックアクション関連
+  // ----------------------------------------------------------------------------
+  // 正規表現にマッチした要素のみを表示する
   const createResultTable = () => {
     const searchInputVal = $searchInput.val();
     const reg = RegExp(searchInputVal);
@@ -26,8 +31,13 @@
     })
   }
 
+  // searchBtnのクリックアクション
   $searchBtn.on('click', createResultTable);
 
+
+  // sort関連
+  // ----------------------------------------------------------------------------
+  // tbody内を再構築する
   const rebuildTbody = (rows) => {
     const $tbody = $('.tbody');
     $tbody.empty();
@@ -36,6 +46,7 @@
     }
   }
 
+  // rowsのsortに使う数字を返す
   const compare = (a, b, col, type) => {
     let _a = $(a).children().eq(col).text();
     let _b = $(b).children().eq(col).text();
@@ -55,6 +66,7 @@
     return 0;
   }
 
+  // tbody内部の要素を並び替えた配列を返す
   const sortRows = () => {
     const $select = $('.sortType option:selected');
     let $rows = $('.constellationTr');
@@ -71,6 +83,7 @@
     return $rows
   }
 
+  // sort機能を実装する
   const sortSetup = () => {
     $('.sortType').on('change', () => {
       let rows;
