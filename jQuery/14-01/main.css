@@ -118,7 +118,7 @@ a {
   padding: 10px 20px;
   font-size: 22px;
 	font-weight: bold;
-  background-color: #EEEEEE;
+  background-color: #ffffff;
   border-radius: 5px 5px 0 0;
 }
 
@@ -133,15 +133,30 @@ a {
 .calendar {
 	width: 455px;
 	margin: 0 auto;
+	text-align: center;
 }
 
 .calendar_title {
+	position: relative;
 	margin-bottom: 10px;
 	font-size: 24px;
+	letter-spacing: 5px;
 	color: #fff;
 }
 
-.tableElement {
+.prevBtn {
+	position: absolute;
+	left: 50px;
+	cursor: pointer;
+}
+
+.nextBtn {
+	position: absolute;
+	right: 50px;
+	cursor: pointer;
+}
+
+.calendar_elem {
 	width: 65px;
 	height: 50px;
 	font-size: 18px;
@@ -149,15 +164,14 @@ a {
 	color: #fff;
 }
 
-.is_today {
-	background-color: #81C784;
+.calendar_day:hover {
+	color: rgba(0,0,0,.7);
+	background-color: #fff;
+	cursor: pointer;
 }
 
-
-
-
-.calendar {
-	text-align: center;
+.is_today {
+	background-color: #81C784;
 }
 
 .is_visible {
