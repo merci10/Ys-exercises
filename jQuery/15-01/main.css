@@ -86,6 +86,7 @@ a {
 
 .progressColorBox {
 	position: absolute;
+	width: ;
 	height: 120px;
 	opacity: .6;
 }
