@@ -82,3 +82,12 @@ a {
   color: #757575;
   background-color: #E0E0E0;
 }
+
+.is_active {
+  color: #909090;
+  background-color: #F0F0F0;
+}
+
+.distArea {
+  font-size: 18px;
+}
