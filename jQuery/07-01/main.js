@@ -1,8 +1,7 @@
-var resetBtn = document.getElementById('reset');
-var mapZone = document.getElementById('map');
+'use strict';
 
 function initMap() {
-  var map = new google.maps.Map(mapZone, {
+  var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 15,
     center: {lat: 35.685176, lng: 139.710052}
   });
@@ -22,11 +21,10 @@ function geocodeAddress(geocoder, resultsMap) {
         map: resultsMap,
         position: results[0].geometry.location
       });
-      resetBtn.addEventListener('click', function(){
-        initMap(results[0].geometry.location);
-      });
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }
   });
 }
+
+document.getElementById('reset').addEventListener('click', initMap);
