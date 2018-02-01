@@ -1,7 +1,6 @@
 'use strict';
-var directionsDisplay;
 var directionsService;
-var map;
+var directionsDisplay;
 
 function initialize() {
   directionsService = new google.maps.DirectionsService();
@@ -11,7 +10,7 @@ function initialize() {
     zoom: 12,
     center: gyoen
   }
-  map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
   directionsDisplay.setMap(map);
 }
 
