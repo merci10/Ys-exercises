@@ -50,7 +50,7 @@
   }
 
   // 曜日の部分を作成する
-  const createCalandarThead = () => {
+  const createCalendarThead = () => {
     let tableHead = ''; // theadの中身になるもの
     let tr = '<tr>';
     for (let i = 0; i < days.length; i++) {
@@ -62,7 +62,7 @@
   }
 
   // 日にちの部分を作成する
-  const createCalandarTbody = (year, month, today) => {
+  const createCalendarTbody = (year, month, today) => {
     const isNowYM = now.getFullYear() === year && now.getMonth() === month ? true : false;
     const startDate = new Date(year, month, 1); // 今の月の最初の日
     const endDate = new Date(year, month + 1, 0); // 今の月の最後の日
@@ -100,12 +100,12 @@
     }
     $tbody.html(tableBody);
   }
-  
+
   // カレンダーの初期設定
   const setUp = () => {
     insertCalendarTitle(currentYear, currentMonth);
-    createCalandarThead();
-    createCalandarTbody(currentYear, currentMonth, currentDate);
+    createCalendarThead();
+    createCalendarTbody(currentYear, currentMonth, currentDate);
   }
 
 
@@ -116,7 +116,7 @@
     currentYear = prev.getFullYear();
     currentMonth = prev.getMonth();
     insertCalendarTitle(currentYear, currentMonth);
-    createCalandarTbody(currentYear, currentMonth, currentDate);
+    createCalendarTbody(currentYear, currentMonth, currentDate);
   });
 
 
@@ -127,7 +127,7 @@
     currentYear = next.getFullYear();
     currentMonth = next.getMonth();
     insertCalendarTitle(currentYear, currentMonth);
-    createCalandarTbody(currentYear, currentMonth, currentDate);
+    createCalendarTbody(currentYear, currentMonth, currentDate);
   });
 
 
